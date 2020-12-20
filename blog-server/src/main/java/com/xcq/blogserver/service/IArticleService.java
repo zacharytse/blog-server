@@ -29,4 +29,10 @@ public interface IArticleService {
      */
     List<Article> findArticlesByUserId(Integer id);
 
+    /**
+     * 找到数据库中最新的文章
+     * @return
+     */
+    Article findNewestArticle();
+
 }

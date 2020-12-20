@@ -16,6 +16,11 @@ public interface ArticleMapper extends BaseMapper<Article> {
     }
 
     default List<Article> findByUID(@Param("uid") Integer uid) {
-        return selectList(new QueryWrapper<Article>().eq("uid",uid));
+        return selectList(new QueryWrapper<Article>().eq("uid", uid));
+    }
+
+    default Article findNewest() {
+        List<Article> articles = selectList(new QueryWrapper<Article>().select().orderByDesc("time"));
+        return articles.size() == 0 ? null : articles.get(0);
     }
 }

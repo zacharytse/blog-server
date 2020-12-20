@@ -39,4 +39,10 @@ public class ArticleServiceTest {
             System.out.println(article);
         }
     }
+
+    @Test
+    public void testFindNewest() {
+        Article article = service.findNewestArticle();
+        System.out.println(article);
+    }
 }

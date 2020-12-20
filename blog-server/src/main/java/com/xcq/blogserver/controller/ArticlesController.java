@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -38,7 +39,15 @@ public class ArticlesController {
     @GetMapping("/title")
     public CommonResult<List<Article>> findArticleByTitle(@RequestParam String title) {
         List<Article> articles = articleService.findArticlesByTitle(title);
+        /*response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Headers", "X-Requested-With,Content-Type");
+        response.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");*/
         return CommonResult.success(articles);
     }
 
+    @GetMapping("/newest")
+    public CommonResult<Article> findNewestArticle() {
+        Article article = articleService.findNewestArticle();
+        return CommonResult.success(article);
+    }
 }

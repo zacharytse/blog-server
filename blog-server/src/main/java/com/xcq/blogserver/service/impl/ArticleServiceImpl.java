@@ -45,4 +45,9 @@ public class ArticleServiceImpl
         logger.info("[findArticlesByUserId][find all articles by id:{}]",uid);
         return articleMapper.findByUID(uid);
     }
+
+    @Override
+    public Article findNewestArticle() {
+        return articleMapper.findNewest();
+    }
 }

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * 文章的实体类
@@ -23,6 +24,17 @@ public class Article implements Serializable {
 
     @TableField("article")
     private String article;
+
+    @TableField("time")
+    private Date time;
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
     public String getTitle() {
         return title;
@@ -67,6 +79,7 @@ public class Article implements Serializable {
                 ", uid=" + uid +
                 ", title='" + title + '\'' +
                 ", article='" + article + '\'' +
+                ", time=" + time +
                 '}';
     }
 }
